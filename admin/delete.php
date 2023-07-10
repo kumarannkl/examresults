@@ -1,6 +1,6 @@
 <?php
 $rollno=$_GET['rollno'];
-//var_dump($id);
+//var_dump($rollno);
 
 $servername="localhost";
 $username="root";

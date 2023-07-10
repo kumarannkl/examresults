@@ -1,5 +1,5 @@
 <?php
-include "students.php";
+//include "students.php";
 include "functions.php";
 
 //var_dump($_GET);
@@ -87,33 +87,33 @@ if($roll_no == '1001') {
 $mark = null;
 $name = "";
 //Check if the marks exists for given roll no.  If so, assign to marks.
-if(isset($students[$roll_no])){
+if (isset($students[$roll_no])) {
     $mark = $students[$roll_no]['marks'];
-    $name =  $students[$roll_no]['name'];
+    $name = $students[$roll_no]['name'];
 }
 
 
 
 ?>
 <?php
-$servername="localhost";
-$username="root";
-$password="";
-$dbname="result";
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "result";
 
-$connection= mysqli_connect($servername,$username,$password,$dbname);
+$connection = mysqli_connect($servername, $username, $password, $dbname);
 
-$sql="SELECT * FROM marks Where rollno='$roll_no'";
+$sql = "SELECT * FROM marks Where rollno='$roll_no'";
 echo $sql;
-$result=mysqli_query($connection,$sql);
-if(mysqli_num_rows($result) > 0 ) {
-   $row = mysqli_fetch_assoc($result);
-   var_dump($row);
-   $mark['marks'] = $row; 
-   $mark['name'] = $row['student_name'];
+$result = mysqli_query($connection, $sql);
+if (mysqli_num_rows($result) > 0) {
+    $row = mysqli_fetch_assoc($result);
+    //var_dump($row);
+    $mark['marks'] = $row;
+    $mark['name'] = $row['student_name'];
 
-   
-//     $mark = [];
+
+    //     $mark = [];
 //    $mark['Tamil'] = $row['tamil'];
 //    $mark['English'] = $row['english'];
 //    $mark['Maths'] = $row['maths'];
@@ -124,33 +124,63 @@ if(mysqli_num_rows($result) > 0 ) {
 }
 ?>
 <html>
-    <head>
-        <style>
-            table {
-                border-collapse: collapse;
-                width: 500px;
-                font-family: Arial, Helvetica, sans-serif;
-            }
-            td,th {
-                text-align: left;
-                padding: 6px;
-                border:2px solid black;
-            }
-        </style>
-    </head>
-    <body>
-        <h1>12TH SUBJECTWISE MARKS</h1>
-        <?php  if($mark == null) {  ?>
-        <h3> Entered roll no does not exist </h3>
 
-        <?php 
-        } 
-        else {
-          
-           // displayMarks($students[$roll_no]);
-           displayMarks($mark);
-    
-    }  ?>
-        <a href="index.html">back</a>
-    </body>
+<head>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 500px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        td,
+        th {
+            text-align: left;
+            padding: 6px;
+            border: 2px solid black;
+        }
+
+        .header {
+            border:5px groove red;
+            text-align:center;
+            background-color:antiquewhite;
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+            color:teal;
+        }
+        .content {
+            border:5px groove red;
+            height:85%;
+            background-color:antiquewhite;
+           
+        }
+        .table
+        {
+            padding: 25px 100px 25px 390px;
+            
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>Exam Result</h1>
+    </div>
+    <div class="content">
+        <div class="table">
+
+            <?php if ($mark == null) { ?>
+                <h3> Entered roll no does not exist </h3>
+
+            <?php
+            } else {
+
+                // displayMarks($students[$roll_no]);
+                displayMarks($mark);
+
+            } ?>
+            <a href="index.html">back</a>
+        </div>
+    </div>
+</body>
+
 </html>
