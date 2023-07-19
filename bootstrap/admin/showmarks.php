@@ -9,7 +9,8 @@
      $sql= "SELECT * FROM marks";
      $result=mysqli_query($connection,$sql);
      $count=mysqli_num_rows($result);
-     $message="";
+     
+     /*$message="";
      $error="";
     if(isset($_GET['action'])){
 
@@ -21,29 +22,12 @@ if (mysqli_query($connection, $sql1)) {
     $message="Data deleted successfully";
 } else {
     $error="Error deleting data";
-}}
-mysqli_close($connection);
+}
+mysqli_close($connection);*/
      
 
 ?>
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</head>
-
-<body>
-  <main>
-    <div class="container-fluid ">
-      <header class="d-flex flex-wrap justify-content-center py-4 mb-4 border-bottom text-white bg-primary">
-        <h1> Student's marks</h1>
-      </header>
-    </div>
+<?php include'header.php'?>
   </div class="container-fluid">
 <div class="container col-8">
   <?php if($message) {?>
@@ -58,7 +42,7 @@ mysqli_close($connection);
     <?php  } ?>
   
 
-<a href="addstudent.html" type="button" class="btn btn-primary">ADD STUDENTS MARK</a>
+<a href="addstudent.php" type="button" class="btn btn-primary">ADD STUDENTS MARK</a>
   <table class="table table-bordered">
     <thead>
       <tr>
@@ -96,12 +80,7 @@ mysqli_close($connection);
   </table>
   </div>
 </div>
-<div class="container-fluid">
-  <footer class="d-flex flex-wrap justify-content-between align-items-center py-3  border-top fixed-bottom mx-3 bg-primary">
-      <p class="col-md-4 mb-0 mx-3 text-white text-secondary ">&copy; 2023 Company,Inc</p>
-  </footer>
-      </div>
-  
+<?php include'footer.php'?>  
   </main>
   </body>
   </html>

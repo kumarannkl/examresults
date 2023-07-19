@@ -39,25 +39,8 @@ if (!$connection) {
 
 
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <title>Bootstrap Example</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</head>
-
-<body>
-    <main>
-        <div class="container-fluid">
-            <header class="d-flex flex-wrap justify-content-center py-4 mb-4 border-bottom text-white bg-primary">
-                <h1> Exam results</h1>
-            </header>
-        </div>
-        <div class="container-fluid justify-content-center col-md-4">
+<?php include'header.php' ?>
+<div class="container-fluid justify-content-center col-md-4">
         <form action="" class="align-items-center border p-5 my-5" method="post">
         <div class="mb-3 mt-2">
           <label for="rollno">Rollno:</label><br>
@@ -99,13 +82,7 @@ if (!$connection) {
                     ?>
       </form>
       </div>
-      <div class="container-fluid">
-        <footer
-          class="d-flex flex-wrap justify-content-between align-items-center py-3  border-top fixed-bottom mx-3 bg-primary">
-          <p class="col-md-4 mb-0 mx-3 text-white text-secondary ">&copy; 2023 Company,Inc</p>
-        </footer>
-      </div>
-    </main>
-</body>
+   <?php include 'footer.php' ?>
+    </body>
 
 </html>
