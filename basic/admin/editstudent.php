@@ -165,7 +165,7 @@ mysqli_close($connection);
                         // header("Location:update.php");
                     }
                     ?>
-                    <input type="button" value="cancel" class="cancel">
+                    <input type="cancel" value="cancel" class="cancel">
                 </div>
 
         </div>

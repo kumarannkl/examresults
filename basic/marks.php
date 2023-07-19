@@ -87,10 +87,10 @@ if($roll_no == '1001') {
 $mark = null;
 $name = "";
 //Check if the marks exists for given roll no.  If so, assign to marks.
-if (isset($students[$roll_no])) {
+/*if (isset($students[$roll_no])) {
     $mark = $students[$roll_no]['marks'];
     $name = $students[$roll_no]['name'];
-}
+}*/
 
 
 
@@ -104,13 +104,15 @@ $dbname = "result";
 $connection = mysqli_connect($servername, $username, $password, $dbname);
 
 $sql = "SELECT * FROM marks Where rollno='$roll_no'";
-echo $sql;
+//echo $sql;
 $result = mysqli_query($connection, $sql);
 if (mysqli_num_rows($result) > 0) {
     $row = mysqli_fetch_assoc($result);
     //var_dump($row);
     $mark['marks'] = $row;
     $mark['name'] = $row['student_name'];
+
+    
 
 
     //     $mark = [];
@@ -127,7 +129,7 @@ if (mysqli_num_rows($result) > 0) {
 
 <head>
     <style>
-        table {
+       table {
             border-collapse: collapse;
             width: 500px;
             font-family: Arial, Helvetica, sans-serif;
